@@ -1,0 +1,14 @@
+https://blog.openzeppelin.com/deconstructing-a-solidity-contract-part-i-introduction-832efd2d7737/
+https://medium.com/coinmonks/ethernaut-lvl-19-magicnumber-walkthrough-how-to-deploy-contracts-using-raw-assembly-opcodes-c50edb0f71a2
+
+-having no recipient address indicates data is contract creation
+-bytecode > opcode > stack
+-execution of constructor then runtime
+
+"0x600a600c600039600a6000f3604260805260206080f3"
+let bytecode = "0x600a600c600039600a6000f3(constructor)   604260805260206080f3(runtime)"
+bytecode = "0x600a600c600039600a6000f3602A60805260206080f3"(change 42 into hex)
+
+web3.eth.sendTransaction({ from: player, data: bytecode }, function(err,res){console.log(res)});
+let contractAddress = "resulting_contract_address"
+await contract.setSolver(contractAddress)
